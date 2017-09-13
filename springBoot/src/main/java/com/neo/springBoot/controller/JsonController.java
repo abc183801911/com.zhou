@@ -17,6 +17,7 @@ public class JsonController {
 		System.out.println("test push");
 		System.out.println("test pull");
 		System.out.println("test pull2");
+		System.out.println("test push2");
 		return user;
 	}
 
