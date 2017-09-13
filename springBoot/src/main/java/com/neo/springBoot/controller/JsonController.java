@@ -16,6 +16,7 @@ public class JsonController {
 		System.out.println("hello 小明");
 		System.out.println("test push");
 		System.out.println("test pull");
+		System.out.println("test pull2");
 		return user;
 	}
 
