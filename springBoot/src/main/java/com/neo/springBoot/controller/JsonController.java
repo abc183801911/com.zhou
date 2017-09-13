@@ -15,6 +15,7 @@ public class JsonController {
 		user.setPassword("xxxx");
 		System.out.println("hello 小明");
 		System.out.println("test push");
+		System.out.println("test pull");
 		return user;
 	}
 
