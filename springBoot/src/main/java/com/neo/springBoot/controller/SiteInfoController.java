@@ -1,11 +1,11 @@
 package com.neo.springBoot.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.neo.springBoot.domain.SiteInfo;
 import com.neo.springBoot.service.SiteInfoService;
@@ -42,7 +42,7 @@ public class SiteInfoController {
 	}
 	
 	@RequestMapping("/findSiteInfo")
-	public String findSiteInfo(SiteInfo siteInfo) {
+	public ModelAndView findSiteInfo(SiteInfo siteInfo) {
 		siteInfo.setName("项目");
 		siteInfo.setRemark("项目");
 		
@@ -55,6 +55,10 @@ public class SiteInfoController {
 			System.out.println("Remark: " + site.getRemark());
 			System.out.println("Url: " + site.getUrl());			
 		}		
-		return "IT学习者-螃蟹";
+		
+		ModelAndView modelAndView = new ModelAndView("findSiteInfo");
+		modelAndView.addObject("siteInfoList", siteInfoList);
+		
+		return modelAndView;
 	}
 }
