@@ -11,20 +11,25 @@
 <body style="background-image: none;">
     <div class="body_wrap">
         <div class="container">
-            <div class="alert alert-success text-center" role="alert">Sptring Boot学习资源大奉送，爱我就关注嘟嘟公众号：嘟爷java超神学堂</div>
+            <div class="alert alert-success text-center" role="alert">Sptring Boot学习资源大奉送，全流程演示</div>
+            <a href="/toInsertSiteInfo" th:href="@{/toInsertSiteInfo}" class="btn btn-info">add</a>          
             <table class="table table-striped table-bordered">
                 <tr>
                     <td>ID</td>
                     <td>名称</td>
                     <td>描述</td>
                     <td>地址</td>
+                    <td>操作</td>
                 </tr>
-                <!--/*@thymesVar id="siteInfoList" type=""*/-->
-                <tr th:each="siteInfo : ${siteInfoList}" class="text-info">
-                	<td th:text="${siteInfo.id}">Id</td>
-                    <td th:text="${siteInfo.name}">嘟嘟MD</td>
-                    <td th:text="${siteInfo.remark}">SPringBoot干货系列</td>
-                    <td><a href="#" th:href="${siteInfo.url}" class="btn btn-search btn-green" target="_blank"><span>点我</span></a>
+                <!--/*@thymesVar id="siteResultList" type=""*/-->
+                <tr th:each="siteResult : ${siteResultList}" class="text-info">
+                	<td th:text="${siteResult.data.id}">Id</td>
+                    <td th:text="${siteResult.data.name}">嘟嘟MD</td>
+                    <td th:text="${siteResult.data.remark}">SPringBoot干货系列</td>
+                    <td><a href="#" th:href="${siteResult.data.url}" class="btn btn-search btn-green" target="_blank"><span>点我</span></a>
+                    </td>
+                    <td><a href="/toUpdateSiteInfo" th:href="@{/toUpdateSiteInfo(id=${siteResult.data.id})}" class="btn btn-info">update</a>
+                    	<a href="/deleteSiteInfoById" th:href="@{/deleteSiteInfoById(id=${siteResult.data.id})}" class="btn btn-info">delete</a>
                     </td>
                 </tr>
             </table>

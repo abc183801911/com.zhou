@@ -1,10 +1,17 @@
 package com.neo.springBoot.domain;
 
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotBlank;
+
 public class SiteInfo {
+	@Min(value=12,message="最小不能小于12")
 	private int id;
+	@NotBlank(message="不能为空")
 	private String name;
 	private String remark;
 	private String url;
+	
 	public int getId() {
 		return id;
 	}
@@ -28,6 +35,11 @@ public class SiteInfo {
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	
+	@Override
+	public String toString() {
+		return "SiteInfo [id=" + id + ", name=" + name + ", remark=" + remark + ", url=" + url + "]";
 	}
 	
 	
